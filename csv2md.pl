@@ -64,7 +64,7 @@ while(<>) {
 		    };
 		    $format = substr($format, 1);
 		} else {
-		    print ":---|"
+		    print ":----|"
 		}
 	    };
 	    print "\n";
