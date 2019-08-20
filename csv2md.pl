@@ -3,15 +3,30 @@
 
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
 
+my $help = 0;
+
+my $message = << '&EOT&';
+# Usage: csv2md.pl [-f <format>] [-h]  
+#   -f --format	[rcl]+ (no. of columns)
+#               r: right alginment
+#               c: center alginment
+#               l: left alginment
+#  -h --help	Print this message. 
+&EOT&
+
 my(@formats);
+
 GetOptions(
-    "f=s" => \@format
+    "format|f=s" => \@format,
+    "help|h" => \$help
     );
 
-my $format = $format[0];
+if ($help == 1) {
+	print STDERR $message.LF;
+	exit(0);
+}
 
-my $filename = $ARGV[0];
-open(IN, "./$filename") or die("> error : $!");
+my $format = $format[0];
 
 my $startline = 1;
 
