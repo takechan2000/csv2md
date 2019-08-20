@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# csv2md: covert csv file to markdown table format
 
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
 
@@ -71,4 +72,3 @@ while(<>) {
 	}
     }
 }
-
